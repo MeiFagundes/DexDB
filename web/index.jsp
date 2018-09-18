@@ -12,9 +12,9 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello JSP!</h1>
-        <a href="PokeServlet?inputType=name&data=5">Search by name</a><br>
-        <a href="PokeServlet?inputType=id&data=5">Search by id</a><br>
-        <a href="PokeServlet" class="btn">Go</a>
+        <h1>DexDB JSP</h1>
+        <a href="PokeServlet?inputType=name&inputData=Bulbasaur">Search by name</a><br>
+        <a href="PokeServlet?inputType=id&inputData=1">Search by id</a><br>
+        <a href="PokeServlet?inputType=wrong&inputData=1000" class="btn">Search with wrong parameters test</a>
     </body>
 </html>
