@@ -1,7 +1,7 @@
 <%-- 
     Document   : index
     Created on : 17/09/2018, 12:41:53
-    Author     : Aluno
+    Author     : Mei
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -9,12 +9,21 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>DexDB</title>
+        <script src="PokeScript.js" type="text/javascript"></script>
     </head>
-    <body>
-        <h1>DexDB JSP</h1>
-        <a href="PokeServlet?inputType=name&inputData=Bulbasaur">Search by name</a><br>
-        <a href="PokeServlet?inputType=id&inputData=1">Search by id</a><br>
-        <a href="PokeServlet?inputType=wrong&inputData=1000" class="btn">Search with wrong parameters test</a>
+    <body onload="changeInputType('id')">
+        <h1>DexDB</h1>
+        Search Pokemon By:<br>
+        <select id="inputType" onchange="inputType_onchange()">
+            <option value="id" selected>Id</option>
+            <option value="name">Name</option>
+        </select><br>
+        
+        <span>Value to be searched:<br>
+            <div id="inputDataDiv"></div>
+        </span>
+        <button type="button" onclick="retrieveData()">Search Pokemon</button>
+        <div id="data"></div>
     </body>
 </html>

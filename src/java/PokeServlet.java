@@ -61,8 +61,6 @@ public class PokeServlet extends HttpServlet {
             
             // ---- CODE ----
             
-            out.println("<h1>DexDB Servlet</h1>");
-            
             // Data type verification
             switch(inputType){
                 case "id":
@@ -116,12 +114,12 @@ public class PokeServlet extends HttpServlet {
                 }
                 
                 // Printing info
-                out.println("<p id='outputId'>Id: #" + id + "</p>");
-                out.println("<p id='outputName'>Name: " + name + "</p>");
-                out.println("<p id='outputType'>Prymary Type: " + primType + "</p>");
-                out.println("<p id='outputType'>Secondary Type: " + secType + "</p>");
-                out.println("<p id='outputEntry'>Entry: " + entry + "</p>");
-                out.println("<img id='outputSprite' src='" + sprite + "'/>");
+                out.println("<p id='dataId'>Id: #" + id + "</p>");
+                out.println("<p id='dataName'>Name: " + name + "</p>");
+                out.println("<p id='dataType'>Prymary Type: " + primType + "</p>");
+                out.println("<p id='dataType'>Secondary Type: " + secType + "</p>");
+                out.println("<p id='dataEntry'>Entry: " + entry + "</p>");
+                out.println("<img id='dataSprite' src='" + sprite + "'/>");
                 
             }catch(SQLException | ClassNotFoundException ex){
                 out.println("Exception: " + ex);
