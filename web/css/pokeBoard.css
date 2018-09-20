@@ -1,0 +1,81 @@
+.pokeBoardOff {
+   content: "";
+   width: 680px;
+   height: 480px;
+   position: absolute;
+   left: 50%;
+   top: 50%;
+   margin-left: -3340px;
+   margin-top: -240px;
+   border: solid black 1px;
+   border-radius: 20px;
+   box-shadow: 10px 17px 18px 1px rgba(0,0,0,0.57);
+   z-index: -1;
+   background-color: #bf4949;
+}
+
+.pokeBoardOn {
+   transition: margin 3.2s;
+   margin-left: -340px;
+}
+
+.pokeSprite img{
+  width: 300px;
+  height: 300px;
+}
+
+.pokeSprite{
+  background-color: white;
+  display: inline-block;
+  position: relative;
+  top: 20px;
+  left: 20px;
+  border-radius: 20px;
+  border:20px inset #a94545;
+  display: inline-block;
+}
+
+.pokeType{
+  position: relative;
+  top: 130px;
+  left: -325px;
+  border-radius: 20px;
+  border:20px inset #a94545;
+  display: inline-block;
+  background-color: #702f2f;
+}
+.type1, .type2{
+  width: 130px;
+  height: 45px;
+  margin: 6px;
+}
+.type1{
+  margin-right: 14px;
+}
+
+.pokeEntry{
+  position: absolute;
+  left: 380px;
+  top: 110px;
+  width: 235px;
+  height: 320px;
+  word-wrap: break-word;
+  background-color: white;
+  border:20px inset #a94545;
+}
+
+.pokeName{
+  color: black;
+  background-color: white;
+  font-family: monospace;
+  text-align: center;
+  width: 255px;
+  position: absolute;
+  top: -130px;
+  left: -20px;
+  border: 18px inset #a94545;
+}
+
+.pokeBoardOn p{
+  margin-left: 10px;
+}

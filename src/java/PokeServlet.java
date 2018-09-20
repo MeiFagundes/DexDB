@@ -38,7 +38,7 @@ public class PokeServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
+           
             
             // ---- DATA ----
             
@@ -48,7 +48,7 @@ public class PokeServlet extends HttpServlet {
             final String table = "dex";
             
             String login = "root";
-            String password = "";
+            String password = "123456";
             String  sqlQuery;
             
             
@@ -63,32 +63,15 @@ public class PokeServlet extends HttpServlet {
             
             // Data type verification
             switch(inputType){
-                case "id":
-                    
-                    // Normalizing id length to 3
-                    switch(inputData.length()){
-                        case 1:
-                            inputData = "00" + inputData;
-                            break;
-                        case 2:
-                            inputData = "0" + inputData;
-                            break;
-                        case 3:
-                            break;
-                        default:
-                            out.println("<h2> --- Incorrect InputData id length --- </h2>");
-                            return;
-                    }
-                    
+                case "ID":
                     sqlQuery = "SELECT * FROM "+ table +" WHERE Id='" + inputData + "'";
                     break;
                     
-                case "name":
-                    
+                case "NAME":
                     sqlQuery = "SELECT * FROM "+ table +" WHERE Name='" + inputData + "'";
                     break;
                 default:
-                    out.println("<h2> --- Incorrect parameter inputType received from JSP --- </h2>");
+                    out.println("Not_Found");
                     return;
             }
             
@@ -109,17 +92,13 @@ public class PokeServlet extends HttpServlet {
                     entry = result.getString("Entry");
                     sprite = result.getString("Sprite");
                 } else{
-                    out.println("<h3> --- Pokemon not found in database --- </h3>");
+                    out.println("Not_Found");
                     return;
                 }
                 
                 // Printing info
-                out.println("<p id='dataId'>Id: #" + id + "</p>");
-                out.println("<p id='dataName'>Name: " + name + "</p>");
-                out.println("<p id='dataType'>Prymary Type: " + primType + "</p>");
-                out.println("<p id='dataType'>Secondary Type: " + secType + "</p>");
-                out.println("<p id='dataEntry'>Entry: " + entry + "</p>");
-                out.println("<img id='dataSprite' src='" + sprite + "'/>");
+                out.println(id+","+name+","+primType+","+secType+","+entry+","+sprite);
+ 
                 
             }catch(SQLException | ClassNotFoundException ex){
                 out.println("Exception: " + ex);
@@ -128,43 +107,5 @@ public class PokeServlet extends HttpServlet {
         }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
-
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
-
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
 
 }

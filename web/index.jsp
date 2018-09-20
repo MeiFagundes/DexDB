@@ -6,24 +6,43 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>DexDB</title>
-        <script src="PokeScript.js" type="text/javascript"></script>
-    </head>
-    <body onload="changeInputType('id')">
-        <h1>DexDB</h1>
-        Search Pokemon By:<br>
-        <select id="inputType" onchange="inputType_onchange()">
-            <option value="id" selected>Id</option>
-            <option value="name">Name</option>
-        </select><br>
-        
-        <span>Value to be searched:<br>
-            <div id="inputDataDiv"></div>
-        </span>
-        <button type="button" onclick="retrieveData()">Search Pokemon</button>
-        <div id="data"></div>
-    </body>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" href="css/button.css">
+    <link rel="stylesheet" href="css/master.css">
+    <link rel="stylesheet" href="css/searchBoard.css">
+    <link rel="stylesheet" href="css/searchBar.css">
+    <link rel="stylesheet" href="css/pokeBoard.css">
+    <meta charset="utf-8">
+    <title>PokedexDB - Your Pokedex Database!</title>
+  </head>
+  <body>
+    <div class="searchBoard">
+      <h1>PokedexDB</h1>
+      <h2>Your pokedex search tool</h2>
+      <div class="col-3">
+        	<input class="searchBar" onfocusout="this.value=''" type="text" placeholder="">
+            <label>Search for pokemon with ID or Name</label>
+          <span class="focus-border"></span>
+      </div>
+      <button class="btn" type="button"><span>Search!</span></button>
+    </div>
+
+    <div class="pokeBoardOff">
+      <div class="pokeEntry">
+        <h1 class="pokeName"></h1>
+        <p class="text"></p>
+      </div>
+      <div class="pokeSprite">
+        <img class = "sprite" src="" alt="">
+      </div>
+      <div class="pokeType">
+        <img src="" alt="" class="type1">
+        <img src="" alt="" class="type2">
+      </div>
+
+    </div>
+
+  </body>
+  <script src="js/pokemonCard.js" charset="utf-8"></script>
 </html>
