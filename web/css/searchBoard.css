@@ -1,0 +1,32 @@
+.searchBoard {
+
+   width: 480px;
+   height: 280px;
+   position: absolute;
+   left: 50%;
+   top: 50%;
+   margin-left: -240px;
+   margin-top: -180px;
+   border: solid black 1px;
+   border-radius: 20px;
+   box-shadow: 10px 17px 18px 1px rgba(0,0,0,0.57);
+   background-color: rgb(230, 230, 230);
+   z-index: -1;
+   background:-webkit-gradient(linear, 89% 3%, 75% 28%, from(#000000), to(#FFFFFF));
+}
+.searchBoard h1, .searchBoard h2{
+  padding-left: 10px;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.searchBoard h1{
+  font-size: 40px;
+  margin-top: 20px;
+  margin-bottom: 0px;
+
+}
+
+.searchBoard h2{
+  font-size: 20px;
+  margin-top: 0;
+}
