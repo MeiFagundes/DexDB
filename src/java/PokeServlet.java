@@ -44,20 +44,24 @@ public class PokeServlet extends HttpServlet {
             
             // MySQL Access
             final String url = "jdbc:mysql://localhost:3306/";
-            final String db = "dexdb";
+            //final String db = "dexdb";
             final String table = "dex";
             
-            String login = "root";
-            String password = "";
+            //String login = "root";
+            //String password = "";
             String  sqlQuery;
             
             
             // Parameters
             String inputType = request.getParameter("inputType");
             String inputData = request.getParameter("inputData");
+            final String login = request.getParameter("login");
+            final String password = request.getParameter("password");
+            final String db = request.getParameter("db");
             
             // Current Pokemon Data
-            String id, name, primType, secType, entry, sprite;
+            int id;
+            String name, primType, secType, entry, sprite;
             
             // ---- CODE ----
             
@@ -65,30 +69,21 @@ public class PokeServlet extends HttpServlet {
             switch(inputType){
                 case "id":
                     
-                    // Normalizing id length to 3
-                    switch(inputData.length()){
-                        case 1:
-                            inputData = "00" + inputData;
-                            break;
-                        case 2:
-                            inputData = "0" + inputData;
-                            break;
-                        case 3:
-                            break;
-                        default:
-                            out.println("<h2> --- Incorrect InputData id length --- </h2>");
-                            return;
-                    }
-                    
-                    sqlQuery = "SELECT * FROM "+ table +" WHERE Id='" + inputData + "'";
+                    sqlQuery = "SELECT * FROM "+ table +" WHERE Id=" + inputData;
                     break;
                     
                 case "name":
                     
                     sqlQuery = "SELECT * FROM "+ table +" WHERE Name='" + inputData + "'";
                     break;
+                    
+                case "list":
+                    
+                    sqlQuery = "SELECT * FROM "+ table + " ORDER BY Id";
+                    break;
+                    
                 default:
-                    out.println("<h2> --- Incorrect parameter inputType received from JSP --- </h2>");
+                    out.println("incorrect parameters");
                     return;
             }
             
@@ -101,25 +96,19 @@ public class PokeServlet extends HttpServlet {
                 ResultSet result = stmt.executeQuery(sqlQuery);
                 
                 // Getting Pokemon info
+
                 if (result.next()) {
-                    id = result.getString("Id");
-                    name = result.getString("Name");
-                    primType = result.getString("PrimaryType");
-                    secType = result.getString("SecondaryType");
-                    entry = result.getString("Entry");
-                    sprite = result.getString("Sprite");
+                    do {
+                        id = result.getInt("Id");
+                        name = result.getString("Name");
+                        primType = result.getString("PrimaryType");
+                        secType = result.getString("SecondaryType");
+                        entry = result.getString("Entry");
+                        out.println(id + "&" + name + "&" + primType + "&" + secType + "&" + entry + "@");
+                    } while (result.next());
                 } else{
-                    out.println("<h3> --- Pokemon not found in database --- </h3>");
-                    return;
+                    out.println("not found");
                 }
-                
-                // Printing info
-                out.println("<p id='dataId'>Id: #" + id + "</p>");
-                out.println("<p id='dataName'>Name: " + name + "</p>");
-                out.println("<p id='dataType'>Prymary Type: " + primType + "</p>");
-                out.println("<p id='dataType'>Secondary Type: " + secType + "</p>");
-                out.println("<p id='dataEntry'>Entry: " + entry + "</p>");
-                out.println("<img id='dataSprite' src='" + sprite + "'/>");
                 
             }catch(SQLException | ClassNotFoundException ex){
                 out.println("Exception: " + ex);

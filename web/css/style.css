@@ -1,0 +1,132 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Sep 21, 2018, 4:34:04 AM
+    Author     : Mei
+*/
+
+#loginField{
+    padding: 3em;
+    width: 42em;
+}
+#loginField *{
+    width: 20em;
+    display: block;
+}
+#loginMessageGreen{
+    font-size: 1.8em;
+    color: #00C853;
+}
+
+#loginMessageRed{
+    font-size: 1.8em;
+    color: #FF1744;
+}
+
+#mainSection{
+    padding: 3em;
+}
+#searchSection{
+    margin: auto;
+    display: block;
+}
+#searchSection, #pokemonList{
+    display: none;
+}
+
+#inputSection{
+    width: 200pt;
+    margin-right: 3em;
+}
+nav{
+    height: 8.5em;
+    padding: 1.2em;
+}
+#navContainer{
+    
+}
+#navContainer *{
+    display: inline-block;
+    font-size: 1.6em;
+    margin-right: 1em;
+    border-radius: 0.5em;
+    padding: 0.2em;
+}
+#navContainer *:hover:not(#logo){
+    background-color: rgba(255, 255, 255, 0.3);
+}
+#navContainer *:not(#logo){
+    padding-left: 0.8em;
+    padding-right: 0.8em;
+}
+#logo{
+    font-size: 3em;
+    user-select: none;
+}
+#data{
+    visibility: hidden;
+    width: 50em;
+    padding: 2em;
+    position: absolute;
+}
+#dataRight{
+    display: inline-block;
+    float: right;
+    width: 35%;
+    font-size: 1.4em;
+}
+#dataRight *{
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
+    font-weight: 450;
+}
+
+#dataLeft{
+    display: inline-block;
+    float: left;
+    width: 60%;
+    text-align: justify;
+    font-size: 1.2em;
+}
+#dataEntry{
+    font-size: 1.2em;
+}
+h3{
+    margin-top: 0em;
+    margin-bottom: 0em;
+}
+#inputSection, #data{
+    display: inline-block;
+    margin-top: 3em;
+}
+#dataSprite{
+    height: 192px;
+    width: 192px;
+    image-rendering: pixelated;
+    border: 0.1em solid lightgrey;
+    border-radius: 20px;
+}
+.pokemonTypes{
+    width: 4em;
+}
+#pokemonNavigation{
+    display: inline-block;
+    position: absolute;
+    bottom: 2em;
+    left: 2em;
+}
+#dataName{
+    
+}
+.innerTableSprite{
+    
+}
+.innerTableType{
+    width: 4.5em;
+}
+#pokemonList{
+    padding: 3em;
+}
