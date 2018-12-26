@@ -67,6 +67,7 @@ public class PokeServlet extends HttpServlet {
             
             // Data type verification
             switch(inputType){
+                
                 case "id":
                     
                     sqlQuery = "SELECT * FROM "+ table +" WHERE Id=" + inputData;

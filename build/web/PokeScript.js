@@ -108,7 +108,7 @@ function retrieveList(){
 
                         let response = xhttp.responseText.toString().split("@");
                         
-                        for (let i = 0; i <= 50; i++) {
+                        for (let i = 0; i < 50; i++) {
                             let current = response[i].split("&");
                             let pokemon = document.createElement('tr');
                             pokemon.className = "pokemonRow";
